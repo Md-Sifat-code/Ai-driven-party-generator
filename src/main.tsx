@@ -6,7 +6,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import LandinLAyout from "./Layout/LandinLAyout";
+
 import LandingPage from "./Pages/LandingPage";
 import AuthLayout from "./Layout/Auth/AuthLayout";
 import Login from "./Pages/Authentication/Login";
@@ -24,12 +24,13 @@ import Blog from "./Pages/Blog";
 import BlogDetails from "./Pages/BlogDetails";
 import MyAccount from "./Pages/MyAccount";
 import PremiumFeature from "./Pages/PremiumFeature";
+import LandingLayout from "./Layout/LandingLayout";
 
 // Define your router with type-safe components
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LandinLAyout />,
+    element: <LandingLayout />,
     children: [
       {
         path: "/",
