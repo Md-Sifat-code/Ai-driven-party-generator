@@ -8,6 +8,10 @@ import {
 import "./index.css";
 import LandinLAyout from "./Layout/LandinLAyout";
 import LandingPage from "./Pages/LandingPage";
+import AuthLayout from "./Layout/Auth/AuthLayout";
+import Login from "./Pages/Authentication/Login";
+import Sign from "./Pages/Authentication/Sign";
+import MainLayout from "./Layout/MainLayout";
 
 // Define your router with type-safe components
 const router = createBrowserRouter([
@@ -21,6 +25,30 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path : "/auth",
+    element : <AuthLayout/>,
+    children : [
+      {
+        path : "/auth/login",
+        element : <Login/>
+      },
+      {
+        path : "/auth/signup",
+        element : <Sign/>
+      }
+    ]
+  },
+  {
+    path : "/home",
+    element : <MainLayout/>,
+    children : [
+      {
+        path : "/home",
+        element : <LandingPage/>
+      },
+    ]
+  }
 ]);
 
 const rootElement = document.getElementById("root");
