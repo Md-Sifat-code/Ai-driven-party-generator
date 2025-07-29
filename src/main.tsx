@@ -12,6 +12,8 @@ import AuthLayout from "./Layout/Auth/AuthLayout";
 import Login from "./Pages/Authentication/Login";
 import Sign from "./Pages/Authentication/Sign";
 import MainLayout from "./Layout/MainLayout";
+import PartyGenerator from "./Pages/PartyGenerator";
+import DiyBoxes from "./Pages/DiyBoxes";
 
 // Define your router with type-safe components
 const router = createBrowserRouter([
@@ -46,6 +48,14 @@ const router = createBrowserRouter([
       {
         path : "/home",
         element : <LandingPage/>
+      },
+      {
+        path : "/party-generator",
+        element : <PartyGenerator/>
+      },
+      {
+        path : "/diyboxes",
+        element : <DiyBoxes/>
       },
     ]
   }
