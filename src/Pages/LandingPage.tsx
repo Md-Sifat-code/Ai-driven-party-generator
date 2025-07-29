@@ -1,10 +1,11 @@
+import Hero from "../components/Home/Hero";
 
 const LandingPage = () => {
   return (
     <div>
-      <h1>Landing Page</h1>
+      <Hero />
     </div>
-  )
-}
+  );
+};
 
-export default LandingPage
+export default LandingPage;
