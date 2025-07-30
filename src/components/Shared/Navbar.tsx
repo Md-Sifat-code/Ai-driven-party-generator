@@ -8,7 +8,7 @@ const Navbar: React.FC = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="container mx-auto px-4 lg:px-24 py-4 flex items-center justify-between bg-background relative border-b border-gray-200">
+    <nav className="container mx-auto px-4 lg:px-5 py-3 flex items-center justify-between bg-background relative border-b border-gray-200">
       {/* Left: Logo */}
       <div className="h-16 w-16">
         <img src={logo} alt="Nav Logo" />
