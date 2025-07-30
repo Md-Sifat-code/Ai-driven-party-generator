@@ -19,6 +19,9 @@ import React, { useEffect, useState } from "react";
 // } from "lucide-react";
 // import { SlBadge } from "react-icons/sl";
 
+// import bannerImg from  "@/assets/party-banner-bg.png"
+import bannerImg from  "@/assets/party-banner-bg.png"
+
 export default function PartyGenerator() {
   const [activeStep, setActiveStep] = useState("Basis Info");
   // const [selectedInsurance, setSelectedInsurance] = useState("Home");
@@ -165,10 +168,20 @@ export default function PartyGenerator() {
     }
   };
   return (
-    <div className="container mx-auto bg-gray-500 mt-10">
+    <div className="container mx-auto bg-gray-800 mt-10 px-8">
       <div className="bg-[#EDEEF0]">
-        <div className="col-span-full md:col-span-3 md:row-span-5 md:col-start-2 md:row-start-1 ">
-          <div className="  ">
+          <div
+      className="relative bg-cover bg-center h-96"
+      style={{ backgroundImage: `url(${bannerImg})` }}
+    >
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="absolute inset-0 flex items-center justify-center">
+        <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold text-center">
+          AI Party Generator
+        </h1>
+      </div>
+    </div>
+          <div className=" bg-pink-500 ">
             {/* Background Decorative Cards */}
 
             {/* Main Content */}
@@ -232,7 +245,7 @@ export default function PartyGenerator() {
                                     : "text-gray-800"
                                 }`}
                               >
-                                <h2 className="text-base md:text-xl break-words whitespace-normal">
+                                <h2 className="text-base md:text-xl break-words whitespace-normal font-fredoka">
                                   {" "}
                                   {step.title} <br />{" "}
                                   {/* <span className="">{step.subtitle}</span> */}
@@ -277,7 +290,7 @@ export default function PartyGenerator() {
               </div>
             </div>
           </div>
-        </div>
+      
         {/* Mobile Only Cart in Center */}
         {/* here i want to add design only for mobile   */}
       </div>
