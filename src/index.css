@@ -4,10 +4,35 @@
 @theme {
   --color-primary: #ffd54f;
   --color-secondary: #223b7d;
+  --color-secondary-light: #132c6e;
+  --color-secondary-dark: #0f1f4c;
   --color-background: #fefefe;
   --font-inter: "Inter", sans-serif;
   --font-fredoka: "Fredoka", cursive;
 }
 body {
   @apply bg-background font-inter;
+}
+/* .custom-radius {
+  border-bottom-left-radius: 50% 40%;
+  border-bottom-right-radius: 50% 20%;
+} */
+/* .custom-image-curve {
+  clip-path: ellipse(100% 100% at 66% 0%);
+} */
+
+.custom-image-curve {
+  clip-path: ellipse(130% 85% at 65% 0%);
+}
+
+@media (min-width: 768px) {
+  .custom-image-curve {
+    clip-path: ellipse(103% 100% at 65% 0%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .custom-image-curve {
+    clip-path: ellipse(100% 100% at 65% 0%);
+  }
 }
