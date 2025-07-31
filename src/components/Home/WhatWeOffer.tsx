@@ -1,91 +1,81 @@
+import backgroundImage from "@/assets/bgdoodle.png";
 import split from "@/assets/split.png";
 import { AIGenerator, BoxIcon, CheckIcon, LetterIcon } from "../Icons";
 
 export default function WhatWeOffer() {
   return (
-    <div className="container mx-auto mt-10 px-4 sm:mt-16 md:mt-24 lg:px-5">
+    <div
+      className="container mx-auto mt-10 px-4 py-10 sm:py-16 md:mt-16 md:py-24 lg:px-5"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
       <div className="mx-auto max-w-6xl text-center">
         {/* Header */}
-        <div className="mb-4 flex items-center justify-center gap-2">
-          <span className="text-primary text-xl font-medium">
+        <div className="mb-8 flex flex-col items-center justify-center sm:flex-row sm:gap-2">
+          <span className="text-primary text-lg font-medium sm:text-xl">
             What we offer
           </span>
-          <div className="relative -top-6 left-8 w-10">
-            <img src={split} alt="" />
+          <div className="relative mt-2 w-10 sm:-top-6 sm:left-8 sm:mt-0">
+            <img src={split} alt="split line" className="mx-auto sm:mx-0" />
           </div>
         </div>
 
-        <h2 className="font-fredoka mb-6 text-3xl sm:text-4xl md:text-5xl leading-tight font-bold text-[#191919]">
+        {/* Title */}
+        <h2 className="font-fredoka mb-4 text-2xl leading-snug font-bold text-[#191919] sm:mb-6 sm:text-4xl sm:leading-tight md:text-5xl">
           Everything you need for the
           <br className="hidden sm:block" />
           perfect party
         </h2>
 
-        <p className="mx-auto mb-12 sm:mb-16 max-w-2xl text-base sm:text-lg text-[#5A5C5F]">
-          From AI-powered planning to curated DIY boxes, we've got every detail covered
+        {/* Description */}
+        <p className="mx-auto mb-10 max-w-xl px-2 text-sm text-[#5A5C5F] sm:mb-16 sm:px-0 sm:text-base md:text-lg">
+          From AI-powered planning to curated DIY boxes, we've got every detail
+          covered
         </p>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-          {/* AI Generator */}
-          <div className="rounded-2xl bg-[#F6F6F6] p-6 sm:p-8 shadow-sm">
-            <div className="mx-auto mb-6 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-xl">
-              <AIGenerator />
+        {/* Grid */}
+        <div className="grid grid-cols-1 gap-4 px-1 sm:grid-cols-2 sm:gap-6 sm:px-0 md:gap-8">
+          {/* Feature Card */}
+          {[
+            {
+              icon: <AIGenerator />,
+              title: "AI Generator",
+              desc: "Get personalized party plans in minutes with our smart AI assistant",
+            },
+            {
+              icon: <BoxIcon />,
+              title: "DIY Party Boxes",
+              desc: "Curated boxes with everything you need for the perfect themed party",
+            },
+            {
+              icon: <LetterIcon />,
+              title: "Smart Invitations",
+              desc: "Create beautiful invitations and track RSVPs effortlessly",
+            },
+            {
+              icon: <CheckIcon />,
+              title: "Party Checklist",
+              desc: "Never forget anything with our intelligent party planning checklist",
+            },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className="rounded-2xl bg-[#F6F6F6] p-5 text-center shadow-sm sm:p-6 sm:text-left md:p-8"
+            >
+              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl sm:mx-0 sm:mb-6 sm:h-14 sm:w-14 md:h-16 md:w-16">
+                {item.icon}
+              </div>
+              <h3 className="mb-2 text-lg font-bold text-gray-800 sm:mb-3 sm:text-xl md:text-2xl">
+                {item.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-gray-600 sm:text-base">
+                {item.desc}
+              </p>
             </div>
-            <h3 className="mb-3 sm:mb-4 text-xl sm:text-2xl font-bold text-gray-800">
-              AI Generator
-            </h3>
-            <p className="leading-relaxed text-gray-600 text-sm sm:text-base">
-              Get personalized party plans in minutes with
-              <br className="hidden sm:block" />
-              our smart AI assistant
-            </p>
-          </div>
-
-          {/* DIY Party Boxes */}
-          <div className="rounded-2xl bg-[#F6F6F6] p-6 sm:p-8 shadow-sm">
-            <div className="mx-auto mb-6 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-xl">
-              <BoxIcon />
-            </div>
-            <h3 className="mb-3 sm:mb-4 text-xl sm:text-2xl font-bold text-gray-800">
-              DIY Party Boxes
-            </h3>
-            <p className="leading-relaxed text-gray-600 text-sm sm:text-base">
-              Curated boxes with everything you need for
-              <br className="hidden sm:block" />
-              the perfect themed party
-            </p>
-          </div>
-
-          {/* Smart Invitations */}
-          <div className="rounded-2xl bg-[#F6F6F6] p-6 sm:p-8 shadow-sm">
-            <div className="mx-auto mb-6 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-xl">
-              <LetterIcon />
-            </div>
-            <h3 className="mb-3 sm:mb-4 text-xl sm:text-2xl font-bold text-gray-800">
-              Smart Invitations
-            </h3>
-            <p className="leading-relaxed text-gray-600 text-sm sm:text-base">
-              Create beautiful invitations and track RSVPs
-              <br className="hidden sm:block" />
-              effortlessly
-            </p>
-          </div>
-
-          {/* Party Checklist */}
-          <div className="rounded-2xl bg-[#F6F6F6] p-6 sm:p-8 shadow-sm">
-            <div className="mx-auto mb-6 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-xl">
-              <CheckIcon />
-            </div>
-            <h3 className="mb-3 sm:mb-4 text-xl sm:text-2xl font-bold text-gray-800">
-              Party Checklist
-            </h3>
-            <p className="leading-relaxed text-gray-600 text-sm sm:text-base">
-              Never forget anything with our intelligent party
-              <br className="hidden sm:block" />
-              planning checklist
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </div>
