@@ -1,4 +1,5 @@
 import Stats from "@/components/Home/Stats";
+import WhatWeOffer from "@/components/Home/WhatWeOffer";
 import WhoWeAre from "@/components/Home/WhoWeAre";
 import Hero from "../components/Home/Hero";
 
@@ -8,6 +9,7 @@ const LandingPage = () => {
       <Hero />
       <WhoWeAre />
       <Stats />
+      <WhatWeOffer />
     </>
   );
 };
