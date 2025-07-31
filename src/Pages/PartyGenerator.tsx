@@ -1,25 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 
-// import uploadImg from "@/assets/imgUpload.png";
-// import uploadImg from "@/assets/imgUpload.png";
-// import c1 from "@/assets/c1.jpg";
-// import c2 from "@/assets/c2.jpg";
-// import c3 from "@/assets/c3.jpg";
-// import c4 from "@/assets/c4.png";
-// import icon5 from "@/assets/icon 5.png";
 
-// import img2 from "@/assets/img2.png"
-// import img3 from "@/assets/img3.png"
-// import img4 from "@/assets/img4.png"
-// import {
-//   ShieldCheck,
-//   MessageCircleQuestion,
-//   ImagePlus,
-
-// } from "lucide-react";
-// import { SlBadge } from "react-icons/sl";
-
-// import bannerImg from  "@/assets/party-banner-bg.png"
 import bannerImg from "@/assets/party-banner-bg.png";
 import allBgImg from "@/assets/party-al-bg.png";
 import { FiChevronDown } from "react-icons/fi";
@@ -30,10 +11,9 @@ import {
   ListChecks,
   Mail,
   Music,
-  QrCode,
   RefreshCcw,
   ShoppingCartIcon,
-  Sparkles,
+  
 } from "lucide-react";
 import sortVideo from "../../public/sort-img.mp4";
 import gift1 from "@/assets/giftImg-1.jpg";
@@ -48,25 +28,7 @@ import musicImg3  from "@/assets/mic-3.png";
 // import { Calendar, ChevronDown } from 'lucide-react';
 export default function PartyGenerator() {
   const [activeStep, setActiveStep] = useState("Basis Info");
-  // const [selectedInsurance, setSelectedInsurance] = useState("Home");
-  // const [uploadedFile, setUploadedFile] = useState<string | null>(null);
-  // const [userQuestion, setUserQuestion] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [modalType, setModalType] = useState<null | "claim" | "coverage">(null);
 
-  // const insuranceTypes = ["Home", "Construction", "Business", "Motor", "Other"];
-
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isModalOpen]);
 
   const steps = [
     {
@@ -103,25 +65,6 @@ export default function PartyGenerator() {
     return currentIndex > fromIndex;
   };
 
-  // const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const file = event.target.files?.[0];
-  //   if (file) {
-  //     setUploadedFile(file.name);
-  //   }
-  // };
-
-  // const handleDragOver = (e: React.DragEvent) => {
-  //   e.preventDefault();
-  // };
-
-  // const handleDrop = (e: React.DragEvent) => {
-  //   e.preventDefault();
-  //   const files = e.dataTransfer.files;
-  //   if (files.length > 0) {
-  //     setUploadedFile(files[0].name);
-  //   }
-  // };
-
   // button  handle
   const handleNext = () => {
     const currentIndex = getStepIndex(activeStep);
@@ -139,16 +82,8 @@ export default function PartyGenerator() {
     }
   };
 
-  // this handel back for inside modul buton
-  // const handleBack = () => {
-  //   const currentIndex = getStepIndex(activeStep);
-  //   const prevIndex = currentIndex - 1;
-  //   if (prevIndex >= 0) {
-  //     setActiveStep(steps[prevIndex].id);
-  //   }
-  // };
 
-  // for first  stape
+  // for first  step
   const [childName, setChildName] = useState("");
   const [childAge, setChildAge] = useState("");
 
@@ -181,7 +116,7 @@ export default function PartyGenerator() {
       [field]: value,
     }));
   };
-  // this is for therd tab
+  // this is for third tab
 
   const [selectedTheme, setSelectedTheme] = useState<string>("");
   const [selectedActivities, setSelectedActivities] = useState<string[]>([]);
@@ -280,7 +215,7 @@ export default function PartyGenerator() {
       image: gift3, // Placeholder for action figures
     },
   ];
-  // fack data for  musicCards
+  // fak data for  musicCards
   const musicCards = [
     {
       id: 1,
@@ -508,7 +443,7 @@ image:musicImg2,
       case "Preferences":
         return (
           <div className="max-w-4xl mx-auto">
-            {/* <h2>this is therd tab </h2> */}
+            {/* <h2>this is thead tab </h2> */}
             <h2 className="text-3xl font-bold text-center text-[#050505]">
               Step 3: A few more details! ✨
             </h2>
@@ -548,10 +483,10 @@ image:musicImg2,
                 </div>
               </div>
 
-              {/* Favourite Activities Section */}
+              {/* Favorite Activities Section */}
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  Favourite Activities
+                  Favorite Activities
                 </h2>
                 <p className="text-gray-600 mb-8">
                   Would you like to add one or more specific activities?
@@ -742,7 +677,7 @@ image:musicImg2,
                 </div>
               </div>
 
-              {/* Party Timeline  bottom onso*/}
+              {/* Party Timeline  bottom part*/}
               <div className=" p-6 pt-8 border-t  border-[#E2E2E2]">
                 <div className=" mb-6">
                   <h3 className="text-xl font-fredoka font-semibold text-gray-900">
@@ -950,7 +885,7 @@ image:musicImg2,
         {/* Main Content */}
         <div className="relative z-10 px-2">
           {/* Header */}
-          <div className=" mb-8 lg:mb-12 ">{/* here somthing  */}</div>
+          <div className=" mb-8 lg:mb-12 ">{/* here something  */}</div>
 
           <div className="max-w-6xl mx-auto -mt-20 pt-10  bg-transparent drop-shadow-sm rounded-2xl">
             <div className="flex justify-center mb-2">
