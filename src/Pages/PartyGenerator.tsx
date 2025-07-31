@@ -1,63 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 
-// import uploadImg from "@/assets/imgUpload.png";
-// import uploadImg from "@/assets/imgUpload.png";
-// import c1 from "@/assets/c1.jpg";
-// import c2 from "@/assets/c2.jpg";
-// import c3 from "@/assets/c3.jpg";
-// import c4 from "@/assets/c4.png";
-// import icon5 from "@/assets/icon 5.png";
 
-// import img2 from "@/assets/img2.png"
-// import img3 from "@/assets/img3.png"
-// import img4 from "@/assets/img4.png"
-// import {
-//   ShieldCheck,
-//   MessageCircleQuestion,
-//   ImagePlus,
-
-// } from "lucide-react";
-// import { SlBadge } from "react-icons/sl";
-
-// import bannerImg from  "@/assets/party-banner-bg.png"
 import bannerImg from "@/assets/party-banner-bg.png";
 import allBgImg from "@/assets/party-al-bg.png";
 import { FiChevronDown } from "react-icons/fi";
 import {
   BookmarkIcon,
+  Boxes,
+  Download,
+  ListChecks,
+  Mail,
   Music,
-  QrCode,
   RefreshCcw,
   ShoppingCartIcon,
-  Sparkles,
+  
 } from "lucide-react";
 import sortVideo from "../../public/sort-img.mp4";
 import gift1 from "@/assets/giftImg-1.jpg";
 import gift2 from "@/assets/gioftImg-2.jpg";
 import gift3 from "@/assets/giftImg-3.jpg";
+import  QCode  from "@/assets/Qcode.png";
+import musicImg1  from "@/assets/mic1.png";
+import musicImg2  from "@/assets/mic-2.png";
+import musicImg3  from "@/assets/mic-3.png";
+
 
 // import { Calendar, ChevronDown } from 'lucide-react';
 export default function PartyGenerator() {
   const [activeStep, setActiveStep] = useState("Basis Info");
-  // const [selectedInsurance, setSelectedInsurance] = useState("Home");
-  // const [uploadedFile, setUploadedFile] = useState<string | null>(null);
-  // const [userQuestion, setUserQuestion] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [modalType, setModalType] = useState<null | "claim" | "coverage">(null);
 
-  // const insuranceTypes = ["Home", "Construction", "Business", "Motor", "Other"];
-
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isModalOpen]);
 
   const steps = [
     {
@@ -94,25 +65,6 @@ export default function PartyGenerator() {
     return currentIndex > fromIndex;
   };
 
-  // const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   const file = event.target.files?.[0];
-  //   if (file) {
-  //     setUploadedFile(file.name);
-  //   }
-  // };
-
-  // const handleDragOver = (e: React.DragEvent) => {
-  //   e.preventDefault();
-  // };
-
-  // const handleDrop = (e: React.DragEvent) => {
-  //   e.preventDefault();
-  //   const files = e.dataTransfer.files;
-  //   if (files.length > 0) {
-  //     setUploadedFile(files[0].name);
-  //   }
-  // };
-
   // button  handle
   const handleNext = () => {
     const currentIndex = getStepIndex(activeStep);
@@ -130,16 +82,8 @@ export default function PartyGenerator() {
     }
   };
 
-  // this handel back for inside modul buton
-  // const handleBack = () => {
-  //   const currentIndex = getStepIndex(activeStep);
-  //   const prevIndex = currentIndex - 1;
-  //   if (prevIndex >= 0) {
-  //     setActiveStep(steps[prevIndex].id);
-  //   }
-  // };
 
-  // for first  stape
+  // for first  step
   const [childName, setChildName] = useState("");
   const [childAge, setChildAge] = useState("");
 
@@ -172,7 +116,7 @@ export default function PartyGenerator() {
       [field]: value,
     }));
   };
-  // this is for therd tab
+  // this is for third tab
 
   const [selectedTheme, setSelectedTheme] = useState<string>("");
   const [selectedActivities, setSelectedActivities] = useState<string[]>([]);
@@ -271,34 +215,28 @@ export default function PartyGenerator() {
       image: gift3, // Placeholder for action figures
     },
   ];
-  // fack data for  musicCards
+  // fak data for  musicCards
   const musicCards = [
     {
       id: 1,
       title: "Superhero Theme Songs",
       description: "Epic superhero movie soundtracks and theme songs",
       platform: "YouTube",
-      image:
-        "https://images.pexels.com/photos/163077/mario-luigi-figures-funny-163077.jpeg?auto=compress&cs=tinysrgb&w=400",
-      bgColor: "bg-red-500",
+      image:musicImg1,
     },
     {
       id: 2,
       title: "Kids Dance Party Mix",
       description: "High-energy songs perfect for kids' dance time",
       platform: "Spotify",
-      image:
-        "https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=400",
-      bgColor: "bg-yellow-500",
+image:musicImg2,
     },
     {
       id: 3,
       title: "Happy Birthday Remixes",
       description: "Fun birthday song variations and remixes",
       platform: "YouTube",
-      image:
-        "https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?auto=compress&cs=tinysrgb&w=400",
-      bgColor: "bg-blue-400",
+      image:musicImg3,
     },
   ];
 
@@ -505,7 +443,7 @@ export default function PartyGenerator() {
       case "Preferences":
         return (
           <div className="max-w-4xl mx-auto">
-            {/* <h2>this is therd tab </h2> */}
+            {/* <h2>this is thead tab </h2> */}
             <h2 className="text-3xl font-bold text-center text-[#050505]">
               Step 3: A few more details! ✨
             </h2>
@@ -545,10 +483,10 @@ export default function PartyGenerator() {
                 </div>
               </div>
 
-              {/* Favourite Activities Section */}
+              {/* Favorite Activities Section */}
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  Favourite Activities
+                  Favorite Activities
                 </h2>
                 <p className="text-gray-600 mb-8">
                   Would you like to add one or more specific activities?
@@ -582,7 +520,7 @@ export default function PartyGenerator() {
               </div>
 
               {/* Action Buttons */}
-              <div className="flex justify-between items-center">
+              <div className="flex flex-col md:flex-row justify-between gap-4 items-center">
                 <button
                   onClick={handleBack}
                   className="px-6 py-3  cursor-pointer border-2 border-gray-300 rounded-lg font-medium text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200"
@@ -605,8 +543,8 @@ export default function PartyGenerator() {
 
       case "Your Perfect Party":
         return (
-          <div className="container mx-auto">
-            <div className="bg-white px-8 py-10">
+          <div className="container mx-auto  ">
+            <div className=" pb-24   px-8 pt-10 bg-white">
               {/* Header */}
               <div className="text-center md:text-left mb-6">
                 <h1 className="text-base md:text-2xl font-bold font-fredoka text-gray-900 mb-3 ">
@@ -739,7 +677,7 @@ export default function PartyGenerator() {
                 </div>
               </div>
 
-              {/* Party Timeline  bottom onso*/}
+              {/* Party Timeline  bottom part*/}
               <div className=" p-6 pt-8 border-t  border-[#E2E2E2]">
                 <div className=" mb-6">
                   <h3 className="text-xl font-fredoka font-semibold text-gray-900">
@@ -781,17 +719,17 @@ export default function PartyGenerator() {
               {/* card section  */}
               <div>
                 {/* Product Cards Grid */}
-                <div className="mb-12 flex flex-col md:flex-row md:gap-0 gap-4  content-center justify-between">
+                <div className="mb-12 mt-8 border-t border-[#E2E2E2] pt-10 flex flex-col md:flex-row md:gap-0 gap-4  content-center justify-between">
                   <div>
                     <h2 className="text-2xl font-semibold font-fredoka">
                       🎁 Suggested Gifts
                     </h2>
-                    <p className="text-base">
+                    <p className="mt-2 text-gray-600 text-base">
                       Based on age and theme, here are great gift ideas:
                     </p>
                   </div>
-                  <button className="px-6 py-0   border  rounded-md">
-                    {" "}
+                  <button className="px-6 py-2 cursor-pointer  border  rounded-md">
+                  
                     <RefreshCcw className="inline h-4 w-4 mr-2" />
                     Refresh
                   </button>
@@ -808,7 +746,7 @@ export default function PartyGenerator() {
                           alt={gift.title}
                           className="w-full h-48 object-cover rounded-xl"
                         />
-                        <button className="absolute top-3 right-3 p-2 bg-white rounded-sm shadow-sm hover:bg-gray-50">
+                        <button className="absolute top-3 cursor-pointer right-3 p-2 bg-white rounded-sm shadow-sm hover:bg-gray-50">
                           <BookmarkIcon />
                         </button>
                       </div>
@@ -823,11 +761,11 @@ export default function PartyGenerator() {
                           <span className="text-xl font-bold text-[#223B7D]">
                             {gift.price}
                           </span>
-                          <span className="text-sm text-gray-500">
+                          <span className="text-sm text-gray-500 border rounded-md border-[#DFE1E6] px-2 py-1">
                             {gift.retailer}
                           </span>
                         </div>
-                        <button className="w-full cursor-pointer bg-[#223B7D] text-white py-2.5 px-4 rounded-lg  hover:bg-blue-900 transition-colors flex items-center justify-center gap-2">
+                        <button className="w-full cursor-pointer text-sm font-normal bg-[#223B7D] text-white py-2 px-4 rounded-lg  hover:bg-blue-900 transition-colors flex items-center justify-center gap-2">
                           <ShoppingCartIcon />
                           Buy Now
                         </button>
@@ -838,16 +776,27 @@ export default function PartyGenerator() {
               </div>
               {/* 🎶 Party Music Playlist for Superhero Adventure */}
               <div>
+                  <div className="mb-12 mt-8 border-t border-[#E2E2E2] pt-10 flex flex-col md:flex-row md:gap-0 gap-4  content-center justify-between">
+                  <div>
+                    <h2 className="text-2xl font-semibold font-fredoka">
+                      🎶 Party Music Playlist for Superhero Adventure
+                    </h2>
+                    <p className="mt-2 text-gray-600 text-base">
+                      Get the party started with this curated playlist:
+                    </p>
+                  </div>
+                  
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
                   {musicCards.map((card) => (
                     <div
                       key={card.id}
-                      className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                      className="bg-white border border-[#DFE1E6]  rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300"
                     >
                       <div className="p-6">
                         <div className="flex items-start gap-4 mb-4">
                           <div
-                            className={`w-16 h-16 ${card.bgColor} rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden`}
+                            className={`w-16 h-16 rounded-lg flex items-center justify-center flex-shrink-0 overflow-hidden`}
                           >
                             <img
                               src={card.image}
@@ -856,29 +805,30 @@ export default function PartyGenerator() {
                             />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <h3 className="font-bold text-gray-900 text-lg mb-1 line-clamp-2">
+                            <h3 className="font-bold text-gray-900  text-base mb-1 line-clamp-2">
                               {card.title}
                             </h3>
-                            <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
+                            <p className="text-gray-600 text-xs leading-relaxed line-clamp-2">
                               {card.description}
                             </p>
                           </div>
                         </div>
 
                         <div className="mb-4">
-                          <span className="text-sm font-medium text-gray-500">
+                          <span className="text-sm text-gray-500 border rounded-md border-[#DFE1E6] px-2 py-1">
                             {card.platform}
                           </span>
                         </div>
 
                         <div className="flex items-center justify-between">
-                          <button className="bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2 shadow-md hover:shadow-lg">
+                          <button className="bg-[#223B7D] cursor-pointer hover:bg-blue-800 text-white px-8 py-2 rounded-md font-normal transition-colors duration-200 flex items-center gap-2 shadow-md hover:shadow-lg">
                             <Music size={18} />
                             Listen
                           </button>
 
-                          <div className="w-12 h-12 border-2 border-gray-200 rounded-lg flex items-center justify-center bg-gray-50">
-                            <QrCode size={24} className="text-gray-400" />
+                          <div className="w-12 h-12  flex items-center justify-center bg-gray-50">
+                            {/* <QrCode size={24} className="text-gray-400" /> */}
+                            <img src={ QCode} alt=""  className=""/>
                           </div>
                         </div>
                       </div>
@@ -886,13 +836,17 @@ export default function PartyGenerator() {
                   ))}
                 </div>
               </div>
-              {/* Action Button */}
-              <div className="text-center mt-8">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 flex items-center gap-2 mx-auto">
-                  <Sparkles className="w-5 h-5" />
-                  Start Planning Your Party
-                </button>
+              {/* button group  */}
+          
+              <div className=" flex flex-col md:flex-row gap-6 content-center justify-center pt-8 border-t border-[#E2E2E2] mt-10">
+                 <button className="px-6 py-2 cursor-pointer border rounded"> <Mail height={24}  width={24} className="inline mr-2"/> Email Plan</button>
+                 <button className="px-6 py-2 cursor-pointer border rounded"> <ListChecks height={24}  width={24} className="inline mr-2"/> Create Checklist</button>
+                 <button className="px-6 py-2 cursor-pointer border rounded"> <Boxes  height={24}  width={24} className="inline mr-2"/> View More Gifts</button>
+                 <button className="px-6 py-2 cursor-pointer bg-[#223B7D] rounded text-white"> <Download  height={24}  width={24} className="inline mr-2"/> View More Gifts</button>
               </div>
+            </div>
+            <div className=" mt-20 pb-10 flex justify-center">
+              <button className="px-6 py-3 border cursor-pointer border-[#DFE1E6] rounded">  Plan Another Party</button>
             </div>
           </div>
         );
@@ -922,7 +876,7 @@ export default function PartyGenerator() {
           </div>
         </div>
       </div>
-      <div className="relative h-[90vh] mt-10">
+      <div className="relative h-[90vh] mt-1">
         <div
           className="absolute inset-0 bg-cover bg-center grayscale"
           style={{ backgroundImage: `url(${allBgImg})` }}
@@ -931,9 +885,9 @@ export default function PartyGenerator() {
         {/* Main Content */}
         <div className="relative z-10 px-2">
           {/* Header */}
-          <div className=" mb-8 lg:mb-12 ">{/* here somthing  */}</div>
+          <div className=" mb-8 lg:mb-12 ">{/* here something  */}</div>
 
-          <div className="max-w-6xl mx-auto bg-transparent pt-10 drop-shadow-sm rounded-2xl">
+          <div className="max-w-6xl mx-auto -mt-20 pt-10  bg-transparent drop-shadow-sm rounded-2xl">
             <div className="flex justify-center mb-2">
               <div className="flex w-full max-w-6xl items-center px-2">
                 {steps.map((step, index) => {
