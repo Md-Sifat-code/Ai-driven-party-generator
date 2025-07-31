@@ -1,8 +1,9 @@
 import Stats from "@/components/Home/Stats";
+import Testimonials from "@/components/Home/Testimonials";
+import VideoBanner from "@/components/Home/VideoBanner";
 import WhatWeOffer from "@/components/Home/WhatWeOffer";
 import WhoWeAre from "@/components/Home/WhoWeAre";
 import Hero from "../components/Home/Hero";
-import VideoBanner from "@/components/Home/VideoBanner";
 
 const LandingPage = () => {
   return (
@@ -12,6 +13,7 @@ const LandingPage = () => {
       <Stats />
       <WhatWeOffer />
       <VideoBanner />
+      <Testimonials />
     </>
   );
 };
