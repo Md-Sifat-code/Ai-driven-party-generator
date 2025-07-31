@@ -22,23 +22,20 @@ import React, { useEffect, useState } from "react";
 // import bannerImg from  "@/assets/party-banner-bg.png"
 import bannerImg from "@/assets/party-banner-bg.png";
 import allBgImg from "@/assets/party-al-bg.png";
-import { FiCalendar, FiChevronDown } from "react-icons/fi";
+import { FiChevronDown } from "react-icons/fi";
 import {
+  BookmarkIcon,
+  Music,
+  QrCode,
+  RefreshCcw,
+  ShoppingCartIcon,
   Sparkles,
-  Crown,
-  Rocket,
-  Zap,
-  Palette,
-  PawPrint,
-  Flag,
-  Wand2,
-  Plus,
-  Scissors,
-  TreePine,
-  MapPin,
-  Play,
-  ChefHat,
 } from "lucide-react";
+import sortVideo from "../../public/sort-img.mp4";
+import gift1 from "@/assets/giftImg-1.jpg";
+import gift2 from "@/assets/gioftImg-2.jpg";
+import gift3 from "@/assets/giftImg-3.jpg";
+
 // import { Calendar, ChevronDown } from 'lucide-react';
 export default function PartyGenerator() {
   const [activeStep, setActiveStep] = useState("Basis Info");
@@ -179,71 +176,60 @@ export default function PartyGenerator() {
 
   const [selectedTheme, setSelectedTheme] = useState<string>("");
   const [selectedActivities, setSelectedActivities] = useState<string[]>([]);
+  const titles = [
+    "30 min before: Setup decorations",
+    "Party start: Welcome & costume photos",
+    "First 30 min: Superhero training",
+    "Food & cake time",
+    "Final 30 min: Games & prizes",
+  ];
 
   const themes = [
     {
       id: "unicorns",
-      name: "Unicorns",
-      icon: Sparkles,
-      color: "text-purple-500",
+      name: "🦄 Unicorns",
     },
-    { id: "princess", name: "Princess", icon: Crown, color: "text-pink-500" },
-    { id: "space", name: "Space", icon: Rocket, color: "text-blue-500" },
+    { id: "princess", name: "🏰 Princess" },
+    { id: "space", name: "🚀 Space" },
     {
       id: "superheroes",
-      name: "Superheroes",
-      icon: Zap,
-      color: "text-yellow-500",
+      name: "🦸 Superheroes",
     },
     {
       id: "art-party",
-      name: "Art Party",
-      icon: Palette,
-      color: "text-orange-500",
+      name: "🎨 Art Party",
     },
-    { id: "animals", name: "Animals", icon: PawPrint, color: "text-green-500" },
-    { id: "pirates", name: "Pirates", icon: Flag, color: "text-gray-700" },
+    { id: "animals", name: "🐾 Animals" },
+    { id: "pirates", name: "🏴‍☠️ Pirates" },
     {
       id: "fairy-tale",
-      name: "Fairy Tale",
-      icon: Wand2,
-      color: "text-emerald-500",
+      name: "🧚 Fairy Tale",
     },
-    { id: "other-theme", name: "Other", icon: Plus, color: "text-gray-500" },
+    { id: "other-theme", name: "Other" },
   ];
 
   const activities = [
     {
       id: "craft",
-      name: "Craft activities",
-      icon: Scissors,
-      color: "text-red-500",
+      name: "Craft activities ✂️",
     },
     {
       id: "outdoor",
-      name: "Outdoor games",
-      icon: TreePine,
-      color: "text-green-500",
+      name: "Outdoor games 🌳",
     },
     {
       id: "treasure",
-      name: "Treasure hunt",
-      icon: MapPin,
-      color: "text-blue-500",
+      name: "Treasure hunt 🗺️",
     },
     {
       id: "show",
-      name: "Show or animation",
-      icon: Play,
-      color: "text-purple-500",
+      name: "Show or animation 🎭",
     },
     {
       id: "cooking",
-      name: "Cooking workshop",
-      icon: ChefHat,
-      color: "text-orange-500",
+      name: "Cooking workshop 🍪",
     },
-    { id: "other-activity", name: "Other", icon: Plus, color: "text-gray-500" },
+    { id: "other-activity", name: "Other" },
   ];
 
   const handleThemeSelect = (themeId: string) => {
@@ -257,6 +243,64 @@ export default function PartyGenerator() {
         : [...prev, activityId]
     );
   };
+
+  // this is for forth tab
+  const gifts = [
+    {
+      id: 1,
+      title: "LEGO Superhero Building Set",
+      description: "Perfect for creative building and superhero adventures",
+      price: "$24.99",
+      retailer: "Amazon",
+      image: gift1, // Using the provided image
+    },
+    {
+      id: 2,
+      title: "Superhero Cape & Mask Set",
+      description: "High-quality costume pieces for dress-up fun",
+      price: "$30.99",
+      retailer: "Etsy",
+      image: gift2, // Placeholder for superhero costumes
+    },
+    {
+      id: 3,
+      title: "Hero Action Figure Collection ",
+      description: "Collectible figures for imaginative play Amazon",
+      price: "$35.99",
+      retailer: "Amazon",
+      image: gift3, // Placeholder for action figures
+    },
+  ];
+  // fack data for  musicCards
+  const musicCards = [
+    {
+      id: 1,
+      title: "Superhero Theme Songs",
+      description: "Epic superhero movie soundtracks and theme songs",
+      platform: "YouTube",
+      image:
+        "https://images.pexels.com/photos/163077/mario-luigi-figures-funny-163077.jpeg?auto=compress&cs=tinysrgb&w=400",
+      bgColor: "bg-red-500",
+    },
+    {
+      id: 2,
+      title: "Kids Dance Party Mix",
+      description: "High-energy songs perfect for kids' dance time",
+      platform: "Spotify",
+      image:
+        "https://images.pexels.com/photos/1540406/pexels-photo-1540406.jpeg?auto=compress&cs=tinysrgb&w=400",
+      bgColor: "bg-yellow-500",
+    },
+    {
+      id: 3,
+      title: "Happy Birthday Remixes",
+      description: "Fun birthday song variations and remixes",
+      platform: "YouTube",
+      image:
+        "https://images.pexels.com/photos/1729931/pexels-photo-1729931.jpeg?auto=compress&cs=tinysrgb&w=400",
+      bgColor: "bg-blue-400",
+    },
+  ];
 
   const renderStepContent = () => {
     switch (activeStep) {
@@ -465,7 +509,7 @@ export default function PartyGenerator() {
             <h2 className="text-3xl font-bold text-center text-[#050505]">
               Step 3: A few more details! ✨
             </h2>
-            <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+            <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8  mt-10">
               {/* Party Details Section */}
               <div className="mb-12">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2">
@@ -477,22 +521,20 @@ export default function PartyGenerator() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {themes.map((theme) => {
-                    const IconComponent = theme.icon;
                     return (
                       <button
                         key={theme.id}
                         onClick={() => handleThemeSelect(theme.id)}
                         className={`
-                    p-4 rounded-xl border-2 transition-all duration-200 hover:shadow-md hover:-translate-y-1
+                    p-4 rounded-xl border-2  cursor-pointer transition-all duration-200 hover:shadow-md hover:-translate-y-1
                     ${
                       selectedTheme === theme.id
-                        ? "border-blue-500 bg-blue-50 shadow-md"
+                        ? "border-[#223B7D] bg-blue-50 shadow-md"
                         : "border-gray-200 bg-white hover:border-gray-300"
                     }
                   `}
                       >
                         <div className="flex items-center justify-center space-x-3">
-                          <IconComponent className={`w-5 h-5 ${theme.color}`} />
                           <span className="font-medium text-gray-800">
                             {theme.name}
                           </span>
@@ -512,27 +554,23 @@ export default function PartyGenerator() {
                   Would you like to add one or more specific activities?
                 </p>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 ">
                   {activities.map((activity) => {
-                    const IconComponent = activity.icon;
                     const isSelected = selectedActivities.includes(activity.id);
                     return (
                       <button
                         key={activity.id}
                         onClick={() => handleActivityToggle(activity.id)}
                         className={`
-                    p-4 rounded-xl border-2 transition-all duration-200 hover:shadow-md hover:-translate-y-1
+                    p-4 rounded-xl cursor-pointer border-2 transition-all duration-200 hover:shadow-md hover:-translate-y-1
                     ${
                       isSelected
-                        ? "border-blue-500 bg-blue-50 shadow-md"
+                        ? "border-[#223B7D] bg-blue-50 shadow-md"
                         : "border-gray-200 bg-white hover:border-gray-300"
                     }
                   `}
                       >
                         <div className="flex items-center justify-center space-x-3">
-                          <IconComponent
-                            className={`w-5 h-5 ${activity.color}`}
-                          />
                           <span className="font-medium text-gray-800">
                             {activity.name}
                           </span>
@@ -545,27 +583,317 @@ export default function PartyGenerator() {
 
               {/* Action Buttons */}
               <div className="flex justify-between items-center">
-                <button className="px-6 py-3 border-2 border-gray-300 rounded-xl font-medium text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200">
+                <button
+                  onClick={handleBack}
+                  className="px-6 py-3  cursor-pointer border-2 border-gray-300 rounded-lg font-medium text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all duration-200"
+                >
                   Previous
                 </button>
 
-                <button className="px-8 py-3 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 hover:shadow-lg transition-all duration-200 flex items-center space-x-2">
-                  <Sparkles className="w-5 h-5" />
-                  <span>Generate My Party!</span>
+                <button
+                  onClick={handleNext}
+                  className="px-8 py-3 bg-[#223B7D] cursor-pointer text-white rounded-lg font-medium hover:bg-blue-700 hover:shadow-lg transition-all duration-200 flex items-center space-x-2"
+                >
+                  ✨ Generate My Party!
                 </button>
               </div>
 
               {/* Selection Summary */}
-            
             </div>
           </div>
         );
 
       case "Your Perfect Party":
         return (
-          <div className="max-w-4xl mx-auto">
-            {/* <h2>this is for result tab </h2> */}
-            this is 4th tab
+          <div className="container mx-auto">
+            <div className="bg-white px-8 py-10">
+              {/* Header */}
+              <div className="text-center md:text-left mb-6">
+                <h1 className="text-base md:text-2xl font-bold font-fredoka text-gray-900 mb-3 ">
+                  <span>🎉</span>
+                  Your Perfect Party Plan is Ready!
+                </h1>
+                <p className="text-gray-600 text-base">
+                  Here's what our AI created just for you
+                </p>
+              </div>
+
+              {/* Main Content Grid */}
+              <div className="grid md:grid-cols-2 px-8 gap-8 mb-12">
+                {/* Theme & Decorations */}
+                <div className=" mt-6">
+                  <div className=" mb-6">
+                    <h3 className="text-md md:text-xl font-fredoka font-semibold text-[#223B7D]">
+                      🎨 Theme & Decorations
+                    </h3>
+                  </div>
+
+                  <div className="mb-5 ">
+                    <span className="inline-block bg-[#223B7D] text-white px-6 py-3 rounded-full text-xs md:text-sm font-medium">
+                      Superhero Adventure
+                    </span>
+                  </div>
+
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-[#223B7D] rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>Superhero banners and balloons</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-[#223B7D] rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>City skyline backdrop</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-[#223B7D] rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>Comic book style table settings</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2  bg-[#223B7D] rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>LED string lights in primary colors</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Fun Activities */}
+                <div className="mt-6">
+                  <div className=" mb-4">
+                    <h3 className="text-xl font-semibold text-[#191919] font-fredoka">
+                      🎯 Fun Activities
+                    </h3>
+                  </div>
+
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>Superhero training obstacle course</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>Design your own superhero mask</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>Pin the cape on the superhero</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>Superhero dance party</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Food & Treats */}
+                <div className="mt-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <h3 className="text-xl font-semibold text-[#223B7D] font-fredoka">
+                      🍰 Food & Treats
+                    </h3>
+                  </div>
+
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-[#FFD54F] rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>Hero sandwiches with fun names</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-[#FFD54F] rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>Power-up fruit kabobs</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-[#FFD54F] rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>Superhero cake with cape design</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-[#FFD54F] rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>Comic book cookies</span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Party Supplies  */}
+                <div className="mt-6">
+                  <div className=" mb-3">
+                    <h3 className="text-xl font-semibold text-[#191919] font-fredoka">
+                      🛍️ Party Supplies
+                    </h3>
+                  </div>
+
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-[#F8BBD0] rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>Superhero capes for each guest</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-[#F8BBD0] rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>Mask-making supplies</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-[#F8BBD0] rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>Activity prizes and stickers</span>
+                    </li>
+                    <li className="flex items-start gap-3 text-gray-700">
+                      <div className="w-2 h-2 bg-[#F8BBD0] rounded-full mt-2.5 flex-shrink-0"></div>
+                      <span>Themed party favors</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              {/* Party Timeline  bottom onso*/}
+              <div className=" p-6 pt-8 border-t  border-[#E2E2E2]">
+                <div className=" mb-6">
+                  <h3 className="text-xl font-fredoka font-semibold text-gray-900">
+                    ⏰ Party Timeline
+                  </h3>
+                </div>
+
+                <div className="flex flex-wrap gap-4">
+                  {titles.map((title, index) => (
+                    <div
+                      key={index}
+                      className="relative overflow-hidden rounded-md border border-blue-400 mb-4 px-6 py-1.5"
+                    >
+                      {/* Background Video */}
+                      <video
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="absolute inset-0 w-full h-full object-cover z-0"
+                      >
+                        <source src={sortVideo} type="video/mp4" />
+                        Your browser does not support the video tag.
+                      </video>
+
+                      {/* Black overlay */}
+                      <div className="absolute inset-0 bg-black/60 z-10"></div>
+
+                      {/* Text content */}
+                      <div className="relative z-20">
+                        <h1 className="text-white text-base font-normal">
+                          {title}
+                        </h1>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* card section  */}
+              <div>
+                {/* Product Cards Grid */}
+                <div className="mb-12 flex flex-col md:flex-row md:gap-0 gap-4  content-center justify-between">
+                  <div>
+                    <h2 className="text-2xl font-semibold font-fredoka">
+                      🎁 Suggested Gifts
+                    </h2>
+                    <p className="text-base">
+                      Based on age and theme, here are great gift ideas:
+                    </p>
+                  </div>
+                  <button className="px-6 py-0   border  rounded-md">
+                    {" "}
+                    <RefreshCcw className="inline h-4 w-4 mr-2" />
+                    Refresh
+                  </button>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {gifts.map((gift) => (
+                    <div
+                      key={gift.id}
+                      className="bg-white rounded-3xl p-3  border border-[#DFE1E6] overflow-hidden"
+                    >
+                      <div className="relative">
+                        <img
+                          src={gift.image || "/placeholder.svg"}
+                          alt={gift.title}
+                          className="w-full h-48 object-cover rounded-xl"
+                        />
+                        <button className="absolute top-3 right-3 p-2 bg-white rounded-sm shadow-sm hover:bg-gray-50">
+                          <BookmarkIcon />
+                        </button>
+                      </div>
+                      <div className="p-2">
+                        <h3 className="font-bold  text-gray-900 mb-2">
+                          {gift.title}
+                        </h3>
+                        <p className="text-sm text-gray-600 mb-4">
+                          {gift.description}
+                        </p>
+                        <div className="flex items-center justify-between mb-4">
+                          <span className="text-xl font-bold text-[#223B7D]">
+                            {gift.price}
+                          </span>
+                          <span className="text-sm text-gray-500">
+                            {gift.retailer}
+                          </span>
+                        </div>
+                        <button className="w-full cursor-pointer bg-[#223B7D] text-white py-2.5 px-4 rounded-lg  hover:bg-blue-900 transition-colors flex items-center justify-center gap-2">
+                          <ShoppingCartIcon />
+                          Buy Now
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* 🎶 Party Music Playlist for Superhero Adventure */}
+              <div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+                  {musicCards.map((card) => (
+                    <div
+                      key={card.id}
+                      className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+                    >
+                      <div className="p-6">
+                        <div className="flex items-start gap-4 mb-4">
+                          <div
+                            className={`w-16 h-16 ${card.bgColor} rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden`}
+                          >
+                            <img
+                              src={card.image}
+                              alt={card.title}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-bold text-gray-900 text-lg mb-1 line-clamp-2">
+                              {card.title}
+                            </h3>
+                            <p className="text-gray-600 text-sm leading-relaxed line-clamp-2">
+                              {card.description}
+                            </p>
+                          </div>
+                        </div>
+
+                        <div className="mb-4">
+                          <span className="text-sm font-medium text-gray-500">
+                            {card.platform}
+                          </span>
+                        </div>
+
+                        <div className="flex items-center justify-between">
+                          <button className="bg-blue-900 hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-medium transition-colors duration-200 flex items-center gap-2 shadow-md hover:shadow-lg">
+                            <Music size={18} />
+                            Listen
+                          </button>
+
+                          <div className="w-12 h-12 border-2 border-gray-200 rounded-lg flex items-center justify-center bg-gray-50">
+                            <QrCode size={24} className="text-gray-400" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Action Button */}
+              <div className="text-center mt-8">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-200 flex items-center gap-2 mx-auto">
+                  <Sparkles className="w-5 h-5" />
+                  Start Planning Your Party
+                </button>
+              </div>
+            </div>
           </div>
         );
 
@@ -573,6 +901,8 @@ export default function PartyGenerator() {
         return null;
     }
   };
+
+  // main div here
   return (
     <div className=" mt-12 ">
       <div
