@@ -323,7 +323,7 @@ export default function DiyBoxDetails() {
         );
       case "reviews":
         return (
-          <div className="p-8">
+          <div className="">
             <div className="space-y-4">
               {reviews.map((review) => (
                 <div
