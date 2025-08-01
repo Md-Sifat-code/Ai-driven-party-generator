@@ -5,7 +5,8 @@ import boxImg3 from "@/assets/box-img-3.jpg";
 import boxImg4 from "@/assets/box-img-4.jpg";
 import boxImg5 from "@/assets/box-img-1.jpg";
 import boxImg6 from "@/assets/box-img-6.jpg";
-import { CircleCheckBig, Clock } from "lucide-react";
+import videoImg from "@/assets/videobanner.jpg";
+import { CircleCheckBig, Clock, Play } from "lucide-react";
 import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 import bannerImg from "@/assets/party-banner-bg.png";
 import { useState } from "react";
@@ -165,6 +166,67 @@ export default function DiyBoxDetails() {
     { text: "Digital tutorial video access" },
   ];
 
+  const activitiesCartData = [
+    {
+      id: "1",
+      title: "Superhero Training Course",
+      description: "Set up an obstacle course with our provided materials",
+      duration: "20 minutes",
+    },
+    {
+      id: "2",
+      title: "Design Your Hero Mask",
+      description: "Creative craft activity with decorating supplies",
+      duration: "20 minutes",
+    },
+    {
+      id: "3",
+      title: "Hero Photo Booth",
+      description: "Professional backdrop for memorable photos",
+      duration: "15 minutes",
+    },
+    {
+      id: "4",
+      title: "Save the City Game",
+      description: "Interactive team game with mission cards",
+      duration: "30 minutes",
+    },
+  ];
+
+  // data for review
+  const reviews = [
+    {
+      id: 1,
+      name: "Sarah M.",
+      timestamp: "2 weeks ago",
+      rating: 5,
+      text: "Amazing box! My son's 6th birthday was perfect. The kids loved the training course and the capes were high quality.",
+    },
+    {
+      id: 2,
+      name: "Sarah M.",
+      timestamp: "2 weeks ago",
+      rating: 5,
+      text: "Amazing box! My son's 6th birthday was perfect. The kids loved the training course and the capes were high quality.",
+    },
+    {
+      id: 3,
+      name: "Sarah M.",
+      timestamp: "2 weeks ago",
+      rating: 5,
+      text: "Amazing box! My son's 6th birthday was perfect. The kids loved the training course and the capes were high quality.",
+    },
+    {
+      id: 4,
+      name: "Sarah M.",
+      timestamp: "2 weeks ago",
+      rating: 5,
+      text: "Amazing box! My son's 6th birthday was perfect. The kids loved the training course and the capes were high quality.",
+    },
+  ];
+
+
+
   // this is tab content
   const renderContent = () => {
     switch (activeTab) {
@@ -200,35 +262,99 @@ export default function DiyBoxDetails() {
         );
       case "activities":
         return (
-          <div className="p-8">
-            <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-              Activities
-            </h2>
-            <p className="text-gray-600">
-              Fun superhero activities and games for your party!
-            </p>
+          <div className="">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {activitiesCartData.map((item) => (
+                <div
+                  key={item.id}
+                  className="shadow-card hover:shadow-card-hover rounded-xl border border-[#DFE1E6] bg-white p-6 transition-all duration-200"
+                >
+                  <div className="space-y-3">
+                    <h3 className="text-xl leading-tight font-medium text-[#191919]">
+                      {item.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-[#5A5C5F]">
+                      {item.description}
+                    </p>
+                    <button className="rounded-full border border-[#DFE1E6] px-4 py-1 text-xs font-medium text-[#5A5C5F]">
+                      {item.duration}
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         );
       case "tutorial":
         return (
-          <div className="p-8">
-            <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-              Tutorial
-            </h2>
-            <p className="text-gray-600">
-              Step-by-step guide to set up your superhero party.
-            </p>
+          <div className="py-10">
+            <div className="rounded-2xl bg-[#DFE1E6] p-6">
+              {/* Image Container with overlay and content */}
+              <div className="relative h-[32rem] w-auto">
+                {/* Background Image */}
+                <img
+                  src={videoImg}
+                  alt=""
+                  className="h-full w-full rounded-lg object-cover"
+                />
+
+                {/* Black Overlay */}
+                <div className="absolute inset-0 rounded-lg bg-black/50"></div>
+
+                {/* Centered Play Button and Text */}
+                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white">
+                  {/* Play Button */}
+                  <div className=" ">
+                    {/* <Play height={26} width={26}/> */}
+                    <Play className="h-12 w-12" />
+                  </div>
+
+                  {/* Text */}
+                  <h2 className="mt-4 mb-2 text-2xl font-medium">
+                    Setup Tutorial Video
+                  </h2>
+                  <p className="text-lg">
+                    Learn how to set up your superhero party in just 30 minutes
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         );
       case "reviews":
         return (
           <div className="p-8">
-            <h2 className="mb-4 text-2xl font-semibold text-gray-900">
-              Reviews
-            </h2>
-            <p className="text-gray-600">
-              See what other party hosts are saying!
-            </p>
+            <div className="space-y-4">
+              {reviews.map((review) => (
+                <div
+                  key={review.id}
+                  className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-shadow duration-200 hover:shadow-md"
+                >
+                  <div className="mb-3 flex items-start justify-between">
+                    <h3 className="text-xl font-medium text-gray-900">
+                      {review.name}
+                    </h3>
+                    <span className="text-lg text-gray-500">
+                      {review.timestamp}
+                    </span>
+                  </div>
+
+                  <div className="mb-3 flex items-center">
+                    {renderStars(review.rating)}
+                  </div>
+
+                  <p className="text-lg leading-relaxed text-[#5A5C5F]">
+                    {review.text}
+                  </p>
+                </div>
+              ))}
+
+              <div className="flex justify-end pt-4">
+                <button className="rounded-md bg-[#223B7D] cursor-pointer px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-blue-800">
+                  View All
+                </button>
+              </div>
+            </div>
           </div>
         );
       default:
@@ -238,12 +364,12 @@ export default function DiyBoxDetails() {
 
   // this is   a main  part
   return (
-    <div>
+    <div className="pb-20">
       <div
         className="relative -z-1 mt-10 h-72 bg-cover bg-center"
         style={{ backgroundImage: `url(${bannerImg})` }}
       ></div>
-      <div className="mx-auto max-w-7xl -mt-72">
+      <div className="mx-auto -mt-72 max-w-7xl">
         <div className="overflow-hidden rounded-2xl p-4">
           <div className="flex flex-col lg:flex-row">
             {/* Left side - Product Images */}
@@ -346,7 +472,7 @@ export default function DiyBoxDetails() {
               </div>
 
               {/* Shop Now Button */}
-              <button className="w-full rounded-lg bg-[#223B7D] px-8 py-4 font-semibold text-white transition-colors duration-200 hover:bg-blue-700">
+              <button className="w-full rounded-lg bg-[#223B7D] cursor-pointer px-8 py-4 font-semibold text-white transition-colors duration-200 hover:bg-blue-700">
                 Shop Now
               </button>
             </div>
@@ -362,7 +488,7 @@ export default function DiyBoxDetails() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 px-6 py-3 text-center font-medium transition-colors duration-200 ${
+                className={`flex-1 px-6 py-3 cursor-pointer text-center font-medium transition-colors duration-200 ${
                   activeTab === tab.id
                     ? "rounded-md bg-[#223B7D] text-white"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
