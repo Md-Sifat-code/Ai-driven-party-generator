@@ -206,26 +206,24 @@ export default function DiyBoxDetails() {
       id: 2,
       name: "Sarah M.",
       timestamp: "2 weeks ago",
-      rating: 5,
+      rating: 4,
       text: "Amazing box! My son's 6th birthday was perfect. The kids loved the training course and the capes were high quality.",
     },
     {
       id: 3,
       name: "Sarah M.",
       timestamp: "2 weeks ago",
-      rating: 5,
+      rating: 4.5,
       text: "Amazing box! My son's 6th birthday was perfect. The kids loved the training course and the capes were high quality.",
     },
     {
       id: 4,
       name: "Sarah M.",
       timestamp: "2 weeks ago",
-      rating: 5,
+      rating: 3,
       text: "Amazing box! My son's 6th birthday was perfect. The kids loved the training course and the capes were high quality.",
     },
   ];
-
-
 
   // this is tab content
   const renderContent = () => {
@@ -290,7 +288,7 @@ export default function DiyBoxDetails() {
           <div className="py-10">
             <div className="rounded-2xl bg-[#DFE1E6] p-6">
               {/* Image Container with overlay and content */}
-              <div className="relative h-[32rem] w-auto">
+              <div className="relative h-[16rem] md:h-[32rem] w-auto">
                 {/* Background Image */}
                 <img
                   src={videoImg}
@@ -310,10 +308,10 @@ export default function DiyBoxDetails() {
                   </div>
 
                   {/* Text */}
-                  <h2 className="mt-4 mb-2 text-2xl font-medium">
+                  <h2 className="mt-4 mb-2 text-xl font-medium sm:text-2xl">
                     Setup Tutorial Video
                   </h2>
-                  <p className="text-lg">
+                  <p className="text-base sm:text-lg text-center px-2">
                     Learn how to set up your superhero party in just 30 minutes
                   </p>
                 </div>
@@ -350,7 +348,7 @@ export default function DiyBoxDetails() {
               ))}
 
               <div className="flex justify-end pt-4">
-                <button className="rounded-md bg-[#223B7D] cursor-pointer px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-blue-800">
+                <button className="cursor-pointer rounded-md bg-[#223B7D] px-6 py-3 text-sm font-medium text-white transition-colors duration-200 hover:bg-blue-800">
                   View All
                 </button>
               </div>
@@ -472,7 +470,7 @@ export default function DiyBoxDetails() {
               </div>
 
               {/* Shop Now Button */}
-              <button className="w-full rounded-lg bg-[#223B7D] cursor-pointer px-8 py-4 font-semibold text-white transition-colors duration-200 hover:bg-blue-700">
+              <button className="w-full cursor-pointer rounded-lg bg-[#223B7D] px-8 py-4 font-semibold text-white transition-colors duration-200 hover:bg-blue-700">
                 Shop Now
               </button>
             </div>
@@ -488,7 +486,7 @@ export default function DiyBoxDetails() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 px-6 py-3 cursor-pointer text-center font-medium transition-colors duration-200 ${
+                className={`flex-1 cursor-pointer px-6 py-3 text-center font-medium transition-colors duration-200 ${
                   activeTab === tab.id
                     ? "rounded-md bg-[#223B7D] text-white"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
