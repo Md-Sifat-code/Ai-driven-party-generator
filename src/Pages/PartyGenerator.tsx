@@ -929,7 +929,7 @@ image:musicImg2,
                               ) : (
                                 step.icon
                               )} */}
-                          <h2 className="text-xl font-bold">{step.icon}</h2>
+                          <h2 className="text-xl font-bold font-fredoka">{step.icon}</h2>
                         </div>
 
                         {/* Title */}
