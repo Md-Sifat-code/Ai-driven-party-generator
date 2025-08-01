@@ -1,6 +1,8 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useLayoutEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import chelsea from "@/assets/profile/chelsea.jpg";
 import libby from "@/assets/profile/libby.jpg";
@@ -8,6 +10,8 @@ import tilly from "@/assets/profile/tilly.jpg";
 import split from "@/assets/split.png";
 import split2 from "@/assets/split_2.png";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Testimonials() {
   const testimonials = [
@@ -52,6 +56,7 @@ export default function Testimonials() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
+  const sectionRef = useRef(null);
 
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
@@ -87,8 +92,63 @@ export default function Testimonials() {
     };
   }, [instanceRef]);
 
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+        defaults: { duration: 0.8, ease: "power3.out" },
+      });
+
+      // Animate the header
+      tl.from(".testimonials-header", { opacity: 0, y: 20 })
+        // Animate the split line
+        .from(
+          ".testimonials-split",
+          {
+            scaleX: 0,
+            transformOrigin: "left center",
+            duration: 0.8,
+            ease: "power2.out",
+          },
+          "<0.2",
+        )
+        // Animate the title
+        .from(
+          ".testimonials-title",
+          { opacity: 0, y: 30, duration: 1, ease: "power4.out" },
+          "<0.3",
+        )
+        // Animate the description
+        .from(
+          ".testimonials-desc",
+          { opacity: 0, y: 20, duration: 0.8 },
+          "<0.3",
+        )
+        // Animate the slider itself
+        .from(
+          ".keen-slider",
+          {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: "power3.out",
+          },
+          "<0.5",
+        );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="relative container mx-auto mt-10 overflow-hidden px-4 py-10 sm:py-16 md:mt-16 md:py-24 lg:px-5">
+    <div
+      ref={sectionRef}
+      className="relative container mx-auto mt-10 overflow-hidden px-4 py-10 sm:py-16 md:mt-16 md:py-24 lg:px-5"
+    >
       {/* Background Decoration */}
       <div className="absolute bottom-20 left-2 sm:left-10 opacity-40">
         <img src={split2} alt="" />
@@ -97,24 +157,24 @@ export default function Testimonials() {
       {/* Main Content */}
       <div className="mx-auto max-w-6xl text-center">
         {/* Header */}
-        <div className="mb-8 flex flex-col items-center justify-center sm:flex-row sm:gap-2">
+        <div className="testimonials-header mb-8 flex flex-col items-center justify-center sm:flex-row sm:gap-2">
           <span className="text-primary text-lg font-medium sm:text-xl">
             Testimonials
           </span>
-          <div className="relative mt-2 w-10 sm:-top-6 sm:left-8 sm:mt-0">
+          <div className="testimonials-split relative mt-2 w-10 sm:-top-6 sm:left-8 sm:mt-0">
             <img src={split} alt="split line" className="mx-auto sm:mx-0" />
           </div>
         </div>
 
         {/* Title */}
-        <h2 className="font-fredoka mb-4 text-2xl leading-snug font-bold text-[#191919] sm:mb-6 sm:text-4xl sm:leading-tight md:text-5xl">
+        <h2 className="testimonials-title font-fredoka mb-4 text-2xl leading-snug font-bold text-[#191919] sm:mb-6 sm:text-4xl sm:leading-tight md:text-5xl">
           Everything you need for the
           <br className="hidden sm:block" />
           perfect party
         </h2>
 
         {/* Description */}
-        <p className="mx-auto mb-10 max-w-xl px-2 text-sm text-[#5A5C5F] sm:mb-16 sm:px-0 sm:text-base md:text-lg">
+        <p className="testimonials-desc mx-auto mb-10 max-w-xl px-2 text-sm text-[#5A5C5F] sm:mb-16 sm:px-0 sm:text-base md:text-lg">
           From AI-powered planning to curated DIY boxes, we've got every detail
           covered
         </p>
@@ -183,9 +243,7 @@ export default function Testimonials() {
                 key={idx}
                 onClick={() => instanceRef.current?.moveToIdx(idx)}
                 className={`rounded-full ${
-                  currentSlide === idx
-                    ? "bg-primary"
-                    : "bg-gray-300"
+                  currentSlide === idx ? "bg-primary" : "bg-gray-300"
                 } h-3 w-3 sm:h-2 sm:w-2`}
               />
             ))}

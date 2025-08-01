@@ -69,3 +69,6 @@ body {
 
   border-top: 10px solid #f6f6f6;
 }
+.gsap-hidden {
+  opacity: 0;
+}
