@@ -86,7 +86,7 @@ const Footer: React.FC = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   className="focus:ring-none w-full rounded-lg bg-white px-4 py-3 text-gray-800 placeholder-gray-500 focus:ring-2 focus:outline-none"
                 />
-                <button className="bg-secondary-light hover:bg-secondary-dark w-full cursor-pointer rounded-lg px-6 py-3 font-medium text-white transition-colors">
+                <button className="bg-secondary-dark hover:bg-secondary-light w-full cursor-pointer rounded-lg px-6 py-3 font-medium text-white transition-colors">
                   Get Started For Free
                 </button>
               </div>
