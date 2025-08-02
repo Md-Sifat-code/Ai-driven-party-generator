@@ -1,12 +1,11 @@
 import { Outlet } from "react-router-dom"
 
-const LandinLAyout = () => {
+const MainLayout = () => {
   return (
     <div>
-        <Outlet/>
-      
+      <Outlet/>
     </div>
   )
 }
 
-export default LandinLAyout
+export default MainLayout
