@@ -68,7 +68,7 @@ const PremiumBanner: React.FC = () => {
         </div>
 
         {/* Overlay */}
-        <div className="banner-overlay absolute inset-0 bg-black opacity-45" />
+        <div className="banner-overlay absolute inset-0 bg-black opacity-50" />
 
         {/* Content */}
         <div className="relative z-10 flex flex-col items-center justify-center px-4 py-24 text-center text-white sm:py-28 md:py-36 lg:py-40">
